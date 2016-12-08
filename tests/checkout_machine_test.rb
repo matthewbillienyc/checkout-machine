@@ -136,7 +136,7 @@ class TestDataHelper
       },
       {
         name: 'Wine',
-        price: 1000,
+        price: 789,
         sku: 1000
       },
       {
