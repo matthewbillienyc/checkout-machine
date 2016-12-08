@@ -1,9 +1,14 @@
 require 'minitest/autorun'
 require_relative '../checkout_machine'
+require_relative '../bonus_card'
+require_relative '../discount'
+require_relative '../products_data'
+require_relative '../product'
 
 class CheckoutMachineTest < Minitest::Test
   def setup
-    @cm = CheckoutMachine.new
+    data_source = ProductsData.new(TestDataHelper.products, TestDataHelper.discounts)
+    @cm = CheckoutMachine.new(data_source)
   end
 
   def test_scan_chips_expects_total_200
@@ -113,5 +118,47 @@ class CheckoutMachineTest < Minitest::Test
 
     # Assert
     assert_equal 1000, @cm.total
+  end
+end
+
+class TestDataHelper
+  def self.products
+    [
+      {
+        name: 'Chips',
+        price: 200,
+        sku: 123
+      },
+      {
+        name: 'Salsa',
+        price: 100,
+        sku: 456
+      },
+      {
+        name: 'Wine',
+        price: 1000,
+        sku: 1000
+      },
+      {
+        name: 'Cigarettes',
+        price: 500,
+        sku: 111
+      }
+    ]
+  end
+
+  def self.discounts
+    [
+      {
+        price: 200,
+        sku: 123,
+        quantity: 3
+      },
+      {
+        price: 50,
+        sku: 456,
+        quantity: 1
+      }
+    ]
   end
 end
