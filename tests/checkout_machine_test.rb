@@ -136,8 +136,8 @@ class TestDataHelper
       },
       {
         name: 'Wine',
-        price: 789,
-        sku: 1000
+        price: 1000,
+        sku: 789
       },
       {
         name: 'Cigarettes',
@@ -150,12 +150,12 @@ class TestDataHelper
   def self.discounts
     [
       {
-        price: 200,
+        amount: 200,
         sku: 123,
         quantity: 3
       },
       {
-        price: 50,
+        amount: 50,
         sku: 456,
         quantity: 1
       }

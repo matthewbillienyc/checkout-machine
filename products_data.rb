@@ -7,7 +7,7 @@ class ProductsData
     end
     @products << BonusCard.new(sku: 000)
     @discounts = discounts.map do |discount|
-      Discount.new(price: discount[:price], quantity: discount[:quantity], sku: discount[:sku])
+      Discount.new(amount: discount[:amount], quantity: discount[:quantity], sku: discount[:sku])
     end
   end
 

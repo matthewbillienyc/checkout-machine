@@ -15,7 +15,7 @@ class CheckoutMachine
 
   def total
     if bonus_card_scanned
-      discounted_balance
+      balance - discounts
     else
       balance
     end
@@ -27,15 +27,16 @@ class CheckoutMachine
     products.map(&:price).inject(:+)
   end
 
-  def discounted_balance
+  def discounts
     products.uniq.map do |product|
       discount = data_source.find_discount_by_sku(product.sku)
+      next unless discount
       product_quantity = products.select { |p| p.sku == product.sku }.length
-      discount.price * (product_quanity / discount.quantity).floor
-    end.inject(:+)
+      discount.amount * (product_quantity / discount.quantity).floor
+    end.compact.inject(:+)
   end
-  
+
   def handle_bonus_card
-    bonus_card_scanned = true
+    self.bonus_card_scanned = true
   end
 end
