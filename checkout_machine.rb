@@ -11,10 +11,9 @@ class CheckoutMachine
     product = data_source.find_by_sku(sku)
     return handle_bonus_card if product.is_a? BonusCard
     products << product
-    current_balance
   end
 
-  def current_balance
+  def total
     if bonus_card_scanned
       discounted_balance
     else
