@@ -35,7 +35,7 @@ class CheckoutMachine
       discount.amount * (product_quantity / discount.quantity).floor
     end.compact.inject(:+)
   end
-
+  
   def handle_bonus_card
     self.bonus_card_scanned = true
   end
