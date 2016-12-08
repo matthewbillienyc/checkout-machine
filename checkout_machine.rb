@@ -9,7 +9,7 @@ class CheckoutMachine
 
   def scan(sku)
     product = data_source.find_by_sku(sku)
-    return handle_bonus_card if product.is_a? BonusCard
+    handle_bonus_card && return if product.is_a? BonusCard
     products << product
   end
 
