@@ -123,6 +123,14 @@ end
 
 class TestDataHelper
   def self.products
+    product_array.map { |p| Product.new(p) }
+  end
+
+  def self.discounts
+    discount_array.map { |d| Discount.new(d) }
+  end
+  
+  def self.product_array
     [
       {
         name: 'Chips',
@@ -147,7 +155,7 @@ class TestDataHelper
     ]
   end
 
-  def self.discounts
+  def self.discount_array
     [
       {
         sku: 123,

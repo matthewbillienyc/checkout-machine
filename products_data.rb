@@ -2,13 +2,9 @@ class ProductsData
   attr_accessor :products, :discounts
 
   def initialize(products, discounts)
-    @products = products.map do |product|
-      Product.new(product)
-    end
+    @products = products
     @products << BonusCard.new(sku: 000)
-    @discounts = discounts.map do |discount|
-      Discount.new(discount)
-    end
+    @discounts = discounts
   end
 
   def find_by_sku(sku)
