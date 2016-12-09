@@ -16,6 +16,6 @@ class Product
   end
 
   def taxable?
-    [500].include? @sku
+    [111].include? @sku
   end
 end
