@@ -16,6 +16,6 @@ class Product
   end
 
   def taxable?
-    ['Cigarettes'].include? @name
+    [500].include? @sku
   end
 end
