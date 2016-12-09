@@ -7,7 +7,7 @@ class ProductsData
     @discounts = discounts
   end
 
-  def find_by_sku(sku)
+  def find_product_by_sku(sku)
     products.find { |product| product.sku == sku }
   end
 
