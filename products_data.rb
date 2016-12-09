@@ -3,11 +3,11 @@ class ProductsData
 
   def initialize(products, discounts)
     @products = products.map do |product|
-      Product.new(price: product[:price], name: product[:name], sku: product[:sku])
+      Product.new(product)
     end
     @products << BonusCard.new(sku: 000)
     @discounts = discounts.map do |discount|
-      Discount.new(amount: discount[:amount], quantity: discount[:quantity], sku: discount[:sku])
+      Discount.new(discount)
     end
   end
 

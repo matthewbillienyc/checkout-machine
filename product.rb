@@ -8,10 +8,14 @@ class Product
   end
 
   def price
-    if name == 'Cigarettes'
+    if taxable?
       @price + 50
     else
       @price
     end
+  end
+
+  def taxable?
+    ['Cigarettes'].include? @name
   end
 end

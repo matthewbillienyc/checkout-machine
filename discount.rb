@@ -1,9 +1,8 @@
 class Discount
-  attr_reader :amount, :quantity, :sku
+  attr_reader :sku, :terms
 
   def initialize(discount)
-    @amount = discount[:amount]
-    @quantity = discount[:quantity]
     @sku = discount[:sku]
+    @terms = discount[:terms]
   end
 end

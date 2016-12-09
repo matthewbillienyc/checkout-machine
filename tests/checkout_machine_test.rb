@@ -150,14 +150,12 @@ class TestDataHelper
   def self.discounts
     [
       {
-        amount: 200,
         sku: 123,
-        quantity: 3
+        terms: lambda { |q| 200 * (q/3).floor }
       },
       {
-        amount: 50,
         sku: 456,
-        quantity: 1
+        terms: lambda { |q| q * 50 }
       }
     ]
   end
