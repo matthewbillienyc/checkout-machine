@@ -1,4 +1,19 @@
+require 'benchmark'
+
 task :default => :test
 task :test do
   Dir.glob('./tests/*_test.rb').each { |file| require file}
+end
+
+test_block = lambda do
+  Dir.glob('./tests/*_test.rb').each { |f| require f }
+end
+
+task :benchtest do
+  bench = Benchmark.measure do
+    100.times do
+      test_block.call
+    end
+  end
+  puts bench
 end
