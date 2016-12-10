@@ -10,10 +10,12 @@ test_block = lambda do
 end
 
 task :benchtest do
-  bench = Benchmark.measure do
-    10000.times do
-      test_block.call
+  10.times do
+    bench = Benchmark.measure do
+      10000.times do
+        test_block.call
+      end
     end
+    puts bench
   end
-  puts bench
 end
