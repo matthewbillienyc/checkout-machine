@@ -3,6 +3,6 @@ class Discount
 
   def initialize(discount)
     @sku = discount[:sku]
-    @terms = discount[:terms]
+    self.class.send(:define_method, "apply_#{@sku}_discount", discount[:terms])
   end
 end

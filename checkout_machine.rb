@@ -28,7 +28,7 @@ class CheckoutMachine
   end
 
   def total_discounts
-    available_discounts.map { |d| d.terms.call(product_quantity(d.sku)) }.inject(:+)
+    available_discounts.map { |d| d.send("apply_#{d.sku}_discount", product_quantity(d.sku)) }.inject(:+)
   end
 
   def available_discounts
