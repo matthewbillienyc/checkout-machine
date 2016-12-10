@@ -11,7 +11,7 @@ end
 
 task :benchtest do
   bench = Benchmark.measure do
-    10000.times do
+    100.times do
       test_block.call
     end
   end
