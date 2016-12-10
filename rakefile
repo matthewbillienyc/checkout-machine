@@ -10,12 +10,14 @@ test_block = lambda do
 end
 
 task :benchtest do
+  totals_array = []
   10.times do
     bench = Benchmark.measure do
       10000.times do
         test_block.call
       end
     end
-    puts bench
+    totals_array << bench.total
   end
+  puts totals_array.inject(:+) / 10
 end
