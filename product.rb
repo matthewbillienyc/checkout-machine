@@ -1,10 +1,10 @@
 class Product
   attr_reader :name, :sku
   
-  def initialize(product)
-    @price = product[:price]
-    @name = product[:name]
-    @sku = product[:sku]
+  def initialize(price, name, sku)
+    @price = price
+    @name = name
+    @sku = sku
   end
 
   def price
@@ -17,5 +17,9 @@ class Product
 
   def taxable?
     [111].include? @sku
+  end
+
+  def method_missing(method)
+    return false
   end
 end

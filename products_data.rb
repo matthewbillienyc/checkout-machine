@@ -1,9 +1,9 @@
 class ProductsData
-  attr_accessor :products, :discounts
+  attr_accessor :products, :discounts, :bonus_card_sku
 
-  def initialize(products, discounts)
+  def initialize(products, discounts, bonus_card_sku)
     @products = products
-    @products << BonusCard.new(sku: 000)
+    @bonus_card_sku = bonus_card_sku
     @discounts = discounts
   end
 

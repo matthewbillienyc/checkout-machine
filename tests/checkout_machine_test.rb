@@ -4,10 +4,11 @@ require_relative '../bonus_card'
 require_relative '../discount'
 require_relative '../products_data'
 require_relative '../product'
+require_relative '../interface_layer'
 
 class CheckoutMachineTest < Minitest::Test
   def setup
-    data_source = ProductsData.new(TestDataHelper.products, TestDataHelper.discounts)
+    data_source = ProductsData.new(TestDataHelper.products, TestDataHelper.discounts, 000)
     @cm = CheckoutMachine.new(data_source)
   end
 
@@ -123,11 +124,11 @@ end
 
 class TestDataHelper
   def self.products
-    product_array.map { |p| Product.new(p) }
+    product_array.map { |p| InterfaceLayer::ProductWrapper.product(p) }
   end
 
   def self.discounts
-    discount_array.map { |d| Discount.new(d) }
+    discount_array.map { |d| InterfaceLayer::DiscountWrapper.discount(d) }
   end
   
   def self.product_array
