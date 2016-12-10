@@ -1,6 +1,5 @@
 require 'minitest/autorun'
 require_relative '../checkout_machine'
-require_relative '../bonus_card'
 require_relative '../discount'
 require_relative '../products_data'
 require_relative '../product'
