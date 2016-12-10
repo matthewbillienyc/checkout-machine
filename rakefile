@@ -11,7 +11,7 @@ end
 
 task :benchtest do
   totals_array = []
-  10.times do
+  100.times do
     bench = Benchmark.measure do
       10000.times do
         test_block.call
@@ -19,5 +19,5 @@ task :benchtest do
     end
     totals_array << bench.total
   end
-  puts totals_array.inject(:+) / 10
+  puts totals_array.inject(:+) / 100
 end
