@@ -1,13 +1,12 @@
 require 'minitest/autorun'
 require_relative '../checkout_machine'
-require_relative '../bonus_card'
 require_relative '../discount'
 require_relative '../products_data'
 require_relative '../product'
 
 class CheckoutMachineTest < Minitest::Test
   def setup
-    data_source = ProductsData.new(TestDataHelper.products, TestDataHelper.discounts)
+    data_source = ProductsData.new(products: TestDataHelper.products, discounts: TestDataHelper.discounts, bonus_card_sku: 000)
     @cm = CheckoutMachine.new(data_source)
   end
 

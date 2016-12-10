@@ -2,9 +2,9 @@ class Product
   attr_reader :name, :sku
   
   def initialize(product)
-    @price = product[:price]
-    @name = product[:name]
-    @sku = product[:sku]
+    @price = product.fetch(:price, 50)
+    @name = product.fetch(:name, 'Miscellaneous')
+    @sku = product.fetch(:sku, 999)
   end
 
   def price

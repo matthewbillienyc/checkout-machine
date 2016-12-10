@@ -1,10 +1,10 @@
 class ProductsData
-  attr_accessor :products, :discounts
+  attr_accessor :products, :discounts, :bonus_card_sku
 
-  def initialize(products, discounts)
-    @products = products
-    @products << BonusCard.new(sku: 000)
-    @discounts = discounts
+  def initialize(products_data)
+    @products = products_data.fetch(:products, [])
+    @bonus_card_sku = products_data.fetch(:bonus_card_sku, nil)
+    @discounts = products_data.fetch(:discounts, [])
   end
 
   def find_product_by_sku(sku)
