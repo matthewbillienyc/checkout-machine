@@ -10,10 +10,4 @@ module InterfaceLayer
       Discount.new(discount[:sku], discount[:terms])
     end
   end
-
-  class BonusCardWrapper
-    def self.bonus_card(bonus_card)
-      BonusCard.new(bonus_card[:sku])
-    end
-  end
 end
